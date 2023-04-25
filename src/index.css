@@ -1,0 +1,25 @@
+.userps {
+    margin-left: 30%;
+}
+
+.img {
+    background-image: url('http://source.unsplash.com/1400x1400/?books');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.std-div {
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+}
+
+.student-quoute {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 21px;
+}
