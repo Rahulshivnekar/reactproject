@@ -1,35 +1,40 @@
-import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Navbar, Nav, Form, Button } from 'react-bootstrap';
 
-const SignInPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // handle sign-in logic here
-  };
-
+function SignInPage() {
   return (
-    <Container>
-      <h1>Sign In</h1>
-      <Form onSubmit={handleSubmit}>
+    <>
+    <div className='userps'>
+    <div style={{ backgroundImage: `url("http://source.unsplash.com/1400x1400/?books")`, backgroundSize: 'cover', height: '100vh' }}>
+      <Navbar bg="transparent" expand="lg">
+        <Navbar.Brand href="#">Sign In</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="#contact">Contact</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <Form style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '2rem', borderRadius: '1rem' }}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <Form.Control type="email" placeholder="Enter email" />
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
         <Button variant="primary" type="submit">
           Sign In
         </Button>
       </Form>
-    </Container>
+    </div>
+    </div>
+    </>
   );
-};
+}
 
 export default SignInPage;
