@@ -3,6 +3,15 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import Navbar from './Navbar';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const Dashboard = () => {
   let [data, updatedata] = useState([]);
@@ -10,72 +19,78 @@ const Dashboard = () => {
     show();
   });
   async function show() {
-    var res = await axios.get("http://tanveerpp.pythonanywhere.com/product/");
+    var res = await axios.get("https://princestudentapi.onrender.com/Course//")
+    
     updatedata(res.data)
   }
+  
+function WithLabelExample() {
+  const now = 60;
+  return <ProgressBar now={now} label={`${now}%`} />;
+}
+  
+
   var total = 0;
   return (
     <>
-      <Container className='d-grid my-10'>
-       
-        <Row>
-          <Col sm={12} md={4}>
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Courses</h5>
-                <p className="card-text">You are currently enrolled in {total} courses.</p>
-              </div>
-            </div>
-          </Col>
-          
-          <Col sm={12} md={4}>
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Attendance</h5>
-                <p className="card-text">You have attended 80% of your classes this semester.</p>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container><br></br><br></br>
+    
+     <Navbar/>
+     
+    <div class="card flex" style={{width: '18rem',height:"650px",borderRadius:"20px",backgroundColor:"#6A5BE2",marginBottom:"20px",marginLeft:"20px",color:'white'}}>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <div class="d-grid gap-2">
+  <button class="btn btn-light" type="button">Dahboard</button>
+  <button class="btn btn-primary" type="button">All students</button>
+  <button class="btn btn-primary" type="button">Courses</button>
+
+</div>
+  </div>
+  <div class="card flex" style={{width: '15rem',height:"200px",borderRadius:"20px",margin:"24px"}}>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    
+  </div>
+  <div style={{width:"80%",margin:'25px'}}>{WithLabelExample()}</div>
+</div>
+ 
+</div> 
       
-      <h2 className='our-courses'>Our courses</h2>
-      <div className='tab-dash'>
-        <table className='table table-success-borderd text-center table-hover container'>
-          <thead>
-            <tr>
-
-              <th>Course Name</th>
-              <th>Fees</th>
-              <th>Duration</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((v) => {
-                 
-              return (<tr key={v.id} id={v.id}>
-
-                <td>{v.name}</td>
-                <td>{v.price}</td>
-
-                <td><button className='btn btn-danger' onClick={() => {
-                  async function del() {
-                    let res = await axios.delete(`http://tanveerpp.pythonanywhere.com/product/${v.id}`);
-                    if (res.status === 204) {
-                      alert("product deleted succesfully")
-                    }
-                  }
-                  del();
-                }}>Delete</button></td>
-                <td><button className='btn btn-warning' onClick={() => {
-                  updateproduct({ ...v })
-                }}>Update</button></td>
-              </tr>)
-            })}
-          </tbody>
-        </table>
+      <div className='tab-dash d-flex justify-content-center'>
+      <TableContainer component={Paper}>
+        <h3 style={{marginLeft:"20px",marginTop:'10px'}}>our courses</h3>
+      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow >
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Fees</TableCell>
+            <TableCell align="right">duration</TableCell>
+            <TableCell align="right">Comment</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 10 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.name}</TableCell>
+              <TableCell align="right">{row.fees}</TableCell>
+              <TableCell align="right">{row.duration}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+        
+        
       </div>
+      
+      
+      
     </>
   );
 }

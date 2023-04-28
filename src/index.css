@@ -26,14 +26,33 @@
 }
 
 .tab-dash {
+    margin-top: -26.5rem;
     margin-left: 380px;
     width: 800px;
     height: 400px;
-    overflow-y: scroll;
-    background-color: whitesmoke;
+    background: linear-gradient(to right, #A2C5FE, #C2E9FC);
     border-radius: 10px;
+    position: relative;
+
+}
+
+.side-bar {
+    width: 200px;
+    height: 700px;
+    background-color: red;
+    margin-top: -500px;
+    margin-left: 50px;
+    border-radius: 30px;
 }
 
 .our-courses {
-    margin-left: 45%;
+    margin-top: -600px;
+}
+
+.dash-img {
+    background-image: url('http://source.unsplash.com/1400x1400/?white');
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
 }
