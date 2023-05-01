@@ -26,14 +26,13 @@
 }
 
 .tab-dash {
-    margin-top: -26.5rem;
-    margin-left: 380px;
+    margin-top: -28.5rem;
+    margin-left: 330px;
     width: 800px;
     height: 400px;
     background: linear-gradient(to right, #A2C5FE, #C2E9FC);
     border-radius: 10px;
     position: relative;
-
 }
 
 .side-bar {
@@ -55,4 +54,15 @@
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.ggg {
+    display: flex;
+    justify-content: center;
+}
+
+.upercard {
+    display: flex;
+    width: 40%px;
+    margin-left: 18%;
 }
