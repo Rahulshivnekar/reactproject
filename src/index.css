@@ -27,7 +27,7 @@
 
 .tab-dash {
     margin-top: -28.5rem;
-    margin-left: 330px;
+    margin-left: 290px;
     width: 800px;
     height: 400px;
     background: linear-gradient(to right, #A2C5FE, #C2E9FC);
@@ -65,4 +65,11 @@
     display: flex;
     width: 40%px;
     margin-left: 18%;
+}
+
+.ml-6 {
+    display: flex;
+    justify-content: right;
+    margin-top: -400px;
+    margin-right: 50px;
 }
