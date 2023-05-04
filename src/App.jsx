@@ -9,6 +9,7 @@ import Pagenotfound from './Pagenotfound';
 import Signin from './Signin';
 import Dashboard2 from './Dashboard2';
 import Teacherdash from './Teacher_db/Teacherdash';
+import Studentdash from './Student_db/Studentdash';
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
       <Route path='/dashboard' element={<Dashboard2/>}></Route>
       <Route path='/signin' element={<Signin/>}></Route>
       <Route path='/teacher' element={<Teacherdash/>}></Route>
+      <Route path='/student' element={<Studentdash/>}></Route>
+
     </Routes>
      
     </>

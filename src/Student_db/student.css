@@ -1,0 +1,9 @@
+.list-group a:hover {
+    background-color: #50C878;
+    color: white;
+}
+
+.cards {
+    margin-left: 920px;
+    margin-top: -150px;
+}

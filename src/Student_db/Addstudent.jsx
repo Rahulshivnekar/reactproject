@@ -4,22 +4,20 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function Addteacher() {
+function Addstudent() {
  
   const [show, setShow] = useState(false);
   const [data,updatedata]=useState({
-  teachername:'',
-  employeesid:0, 
-  teacheremail:'',
-  teacherpassword:'',
-  teachermobile:'',
-  joindate:'',
-  education:'',
-  workexp:'',
-  photo:'',
-  gender:"M",
-  is_active:'true',
-  teachercourse: "https://princestudentapi.onrender.com/Course//9/"})
+  sname:'',
+   semail:'',
+  smobile:'',
+  saddress:'',
+  scollege:'',
+  sdegree:'',
+  total_amount:'',
+  paid_amount:'',
+  due_amount:'',
+  scourse: ""})
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
  function change(e){
@@ -27,7 +25,7 @@ function Addteacher() {
   console.log(data)
  }
  async function Add(){
-         var res=await axios.post("https://princestudentapi.onrender.com/Teacher//",data)
+         var res=await axios.post("https://princestudentapi.onrender.com/AddStudent//",data)
          if(res.status===200){
           alert('added succesfully')
          }
@@ -40,18 +38,18 @@ function Addteacher() {
  const [option,setOptions]=useState();
  useEffect(()=>{
   fetch("https://princestudentapi.onrender.com/Course//")
-  .then((data)=>data.json())
-  .then((val)=>setValues(val));
+  .then((data) => data.json())
+  .then((val) => setValues(val));
  },[]);
   return (
     <>
       <Button variant="secondary" onClick={handleShow}>
-        Add teacher
+        Add student
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add teacher</Modal.Title>
+          <Modal.Title>Add Student</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form >
@@ -59,122 +57,104 @@ function Addteacher() {
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
-                name='teachername'
-                value={data.teachername}
+                name='sname'
+                value={data.sname}
                 onChange={change}
                 autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Employeesid</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="478"
-                name='employeesid'
-                value={data.employeesid}
+                type="email"
+                placeholder="name@gmail.com"
+                name='semail'
+                value={data.semail}
                 onChange={change}
                 autoFocus
                 
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>phone</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="name@example.com"
-                value={data.teacheremail}
-                name="teacheremail"
+                placeholder="p.no"
+                value={data.smobile}
+                name="smobile"
                 onChange={change}
                 autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="password"
-                value={data.teacherpassword}
-                name="teacherpassword"
-                onChange={change}
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Contact</Form.Label>
+              <Form.Label>Address</Form.Label>
               <Form.Control
                 type="text"
-                value={data.teachermobile}
-                name="teachermobile"
+                placeholder=""
+                value={data.saddress}
+                name="saddress"
                 onChange={change}
                 autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>join date</Form.Label>
+              <Form.Label>College</Form.Label>
               <Form.Control
-                type="date"
-                value={data.joindate}
-                name='joindate'
+                type="text"
+                value={data.scollege}
+                name="scollege"
+                onChange={change}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>degree</Form.Label>
+              <Form.Control
+                type="text"
+                value={data.sdegree}
+                name='sdegree'
                 onChange={change}
                 autoFocus
               />
             </Form.Group>
             
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Education</Form.Label>
+              <Form.Label>Total amount</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 
-                value={data.education}
-                name='education'
+                value={data.total_amount}
+                name='total_amount'
                 onChange={change}
                 autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>work experience</Form.Label>
+              <Form.Label>paid amount</Form.Label>
               <Form.Control
-                type="text"
-                value={data.workexp}
-                name='workexp'
+                type="number"
+                value={data.paid_amount}
+                name='paid_amount'
                 onChange={change}
                 autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>photo</Form.Label>
+              <Form.Label>Due amount</Form.Label>
               <Form.Control
-                type="file"
-                placeholder="name@example.com"
-                value={data.photo}
-                name="photo"
+                type="number"
+                
+                value={data.due_amount}
+                name="due_amount"
                 
                 onChange={change}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>gender</Form.Label>
-              <Form.Control
-                type="text"
-                value={data.gender}
-                name="gender"
-                onChange={change}
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>is active</Form.Label>
-              <Form.Control
-                type="radio"
-               value={data.is_active}
-               name="is_active"
-               onChange={change}
-                autoFocus
-              />
-            </Form.Group>
-            <label>teacher course</label>
-            <select onChange={change} name="teachercourse" value={data.teachercourse}>
+            
+            
+            <label htmlFor='Select_course'>Student course</label>
+            <select onChange={change} name="scourse" >
               {
                 values.map((optn,i)=> <option key={i} value={optn.url}>{optn.name}</option>)
               }
@@ -194,4 +174,4 @@ function Addteacher() {
     </>
   );
 }
-export default Addteacher;
+export default Addstudent;

@@ -1,35 +1,36 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import Addteacher from './Addteacher';
+import Addstudent from './Addstudent';
 
     
-const Teacherapi = () => {
+const Stdapi = () => {
     let [data, updatedata] = useState([]);
     useEffect(() => {
       show();
     });
     async function show() {
-      var res = await axios.get("https://princestudentapi.onrender.com/Teacher//")
+      var res = await axios.get("https://princestudentapi.onrender.com/AddStudent//")
       
       updatedata(res.data)
     }
   return (
     <div>
-        
-        <Addteacher/>
+        <Addstudent/>
          <table class="table caption-top text-light rounded mt-2 "> 
       
-      
-              <caption className='fs-4'>Teachers</caption>
+              
+              <caption className='fs-4'>All students</caption>
               
     <thead>
       <tr>
         
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Education</th>
-        <th scope="col">Experience</th>
-        <th scope="col">Contact</th>
+       <th scope='col'>mobile</th>
+       <th scope='col'>address</th>
+       <th scope='col'>college</th>
+
+       
 
   
       </tr>
@@ -38,11 +39,13 @@ const Teacherapi = () => {
           {data.map((v)=>{
             return(<tr key={v.id} id={v.id}>
               
-              <td>{v.teachername}</td>
-              <td>{v.teacheremail}</td>
-              <td>{v.education}</td>
-              <td>{v.workexp}</td>
-              <td>{v.teachermobile}</td>
+              <td>{v.sname}</td>
+              <td>{v.semail}</td>
+              <td>{v.smobile}</td>
+              <td>{v.saddress}</td>
+              <td>{v.scollege}</td>
+              {/* <td>{v.scourse}</td> */}
+
               
             </tr>)
           })}
@@ -55,4 +58,4 @@ const Teacherapi = () => {
   )
 }
 
-export default Teacherapi
+export default Stdapi

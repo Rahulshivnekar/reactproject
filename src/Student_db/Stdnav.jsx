@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Nav = ({ Toggle }) => {
+const Stdnav = ({ Toggle }) => {
   return (
     <nav className="navbar navbar-expand-sm navbar-white bg-tranparent container ">
       <i className="navbar-brand bi bi-justify-left fs-4 " onClick={Toggle}>
         {" "}
       </i>
       <button
-        className="navbar-toggler"
+        className="navbar-toggler " style={{color:"white"}}
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent"
@@ -16,7 +16,7 @@ const Nav = ({ Toggle }) => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <i class=" bg-dark bi bi-filter-left"></i>
+        <i class="bi bi-body-text"></i>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -47,4 +47,4 @@ const Nav = ({ Toggle }) => {
   );
 };
 
-export default Nav;
+export default Stdnav;
