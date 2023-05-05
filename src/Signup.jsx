@@ -1,47 +1,74 @@
+import axios from 'axios';
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useState } from 'react';
 import './signup.css';
 
 function SignUp() {
+  const [data,updatedata]=useState({name:'',email:'',contact:'',password:''});
+  async function add(){
+    var res=await axios.post("https://princestudentapi.onrender.com/Registration//",data)
+    if(res.status===200){
+      alert('signup succesfully')
+    }
+  }
+  function change(e){
+    updatedata({...data,[e.target.name]:e.target.value})
+  }
+  
   return (
-    <div className='maindiv'>
-    <Container className="mt-5">
-      <Row className="justify-content-center">
-        <Col xs={12} sm={8} md={6} lg={4}>
-          <Form>
-            <Form.Group controlId="formBasicUsername">
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="text" placeholder="Enter username" />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicConfirmPassword">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control type="password" placeholder="Confirm Password" />
-            </Form.Group>
-
-            <div className="text-center">
-              <Button variant="primary" type="submit">
-                Sign Up
-              </Button>
+    <>
+      <div className="container d-flex justify-content-center align-items-center min-vh-100">
+        <div className="row border rounded-5 p-3 bg-white shadow box-area">
+          <div className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style={{ background: '#103cbe' }}>
+            <div className="featured-image mb-3">
+              <img src="" className="img-fluid" style={{ width: '250px' }} />
             </div>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
-    </div>
+            <p className="text-white fs-2" style={{ fontFamily: 'Courier New', Courier: true, fontWeight: 600 }}>Be Verified</p>
+            <small className="text-white text-wrap text-center" style={{ width: '17rem', fontFamily: 'Courier New', Courier: true }}>“Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” —Malcolm X</small>
+          </div>
+          <div className="col-md-6 right-box">
+            <div className="row align-items-center">
+              <div className="header-text mb-4">
+                <h2>Sign up</h2>
+                <p>We are happy to have you back.</p>
+              </div>
+              <form >
+              <div className="input-group mb-3">
+                <input type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Name" name='name' value={data.name} onChange={change}/>
+              </div>
+              <div className="input-group mb-3">
+                <input type="email" className="form-control form-control-lg bg-light fs-6" placeholder="Email addess" name='email' value={data.email} onChange={change}/>
+              </div>
+              <div className="input-group mb-3">
+                <input type="number" className="form-control form-control-lg bg-light fs-6" placeholder="Contact" name='contact' value={data.contact} onChange={change}/>
+              </div>
+              <div className="input-group mb-3">
+                <input type="password" className="form-control form-control-lg bg-light fs-6" placeholder="Password" name="password" value={data.password} onChange={change}/>
+              </div>
+              <div className="input-group mb-5 d-flex justify-content-between">
+                {/* <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="formCheck" />
+                  <label htmlFor="formCheck" className="form-check-label text-secondary"><small>Remember Me</small></label>
+                </div> */}
+                <div className="forgot">
+                  <small><a href="#">Forgot Password?</a></small>
+                </div>
+              </div>
+              <div className="input-group mb-3">
+                <button className="btn btn-lg btn-primary w-100 fs-6" type='submit' onSubmit={add}>Sign up</button>
+              </div>
+              </form>
+              <div className="input-group mb-3">
+                <button className="btn btn-lg btn-light w-100 fs-6"><img src="" style={{ width: '20px' }} className="me-2" /><small>Sign In with Google</small></button>
+              </div>
+              <div className="row">
+                <small>Allready have an account? <a href="#">Sign in</a></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

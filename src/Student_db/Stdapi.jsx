@@ -15,7 +15,11 @@ const Stdapi = () => {
     }
   return (
     <div>
-        <Addstudent/>
+        <div className='mt-4'> 
+        <Addstudent className='row g-3 mt-2'/>
+        </div>
+        
+       
          <table class="table caption-top text-light rounded mt-2 "> 
       
               

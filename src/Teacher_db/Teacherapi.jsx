@@ -15,8 +15,9 @@ const Teacherapi = () => {
     }
   return (
     <div>
-        
-        <Addteacher/>
+        <div className='mt-4'> 
+        <Addteacher className='row g-3 mt-2'/>
+        </div>
          <table class="table caption-top text-light rounded mt-2 "> 
       
       

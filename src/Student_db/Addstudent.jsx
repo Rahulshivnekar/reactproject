@@ -43,7 +43,7 @@ function Addstudent() {
  },[]);
   return (
     <>
-      <Button variant="secondary" onClick={handleShow}>
+      <Button variant="secondary"  onClick={handleShow}>
         Add student
       </Button>
 
