@@ -27,7 +27,7 @@ function SignUp() {
             <div className="row align-items-center">
               <div className="header-text mb-4">
                 <h2>Sign up</h2>
-                <p>We are happy to have you back.</p>
+                <p>We are happy to have you here.</p>
               </div>
               <form  onSubmit={(e)=>{
                 e.preventDefault();
