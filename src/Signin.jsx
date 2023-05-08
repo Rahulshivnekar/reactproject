@@ -7,7 +7,7 @@ import './signup.css';
 
 function Signin() {
   var navigate=useNavigate();
-  let [data,updatedata]=useState({name:'',email:'',password:''});
+  let [data,updatedata]=useState({email:'',password:''});
   function change(e){
     updatedata({...data,[e.target.name]:e.target.value})
   }
@@ -32,17 +32,27 @@ function Signin() {
               <form  onSubmit={(e)=>{
                 e.preventDefault();
                 async function signup(){
-                  let res=await axios.post("https://princestudentapi.onrender.com/Registration//",data)
-                  if(res.status===201){
-                   
-                     navigate('/dashboard')
+                  let d=await axios.get("https://princestudentapi.onrender.com/Registration//")
+                  d =await d.data
+                  let c=0;
+                  for(var i of d){
+                    if(data.email===i.email && data.password===i.password){
+                        c++;
+                        break;
+                    }
+
+                  }
+                  if(c===0){
+                    alert('invalid email or password')
+                  }
+
+                  else{
+                    navigate("/dashboard")
                   }
                 }
                 signup()
               }}>
-              <div className="input-group mb-3">
-                <input type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Name" name='name' value={data.name} onChange={change}/>
-              </div>
+              
               <div className="input-group mb-3">
                 <input type="email" className="form-control form-control-lg bg-light fs-6" placeholder="Email addess" name='email' value={data.email} onChange={change}/>
               </div>

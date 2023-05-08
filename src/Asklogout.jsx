@@ -25,7 +25,7 @@ function Asklogout() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Link to="/"><button className='btn btn-primary'>confirm</button></Link>
+          <Link to="/signin"><button className='btn btn-primary'>confirm</button></Link>
         </Modal.Body>
       </Modal>
       <Modal
