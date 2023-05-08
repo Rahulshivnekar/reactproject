@@ -1,73 +1,80 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Box from '@mui/material/Box';
-import Fab from '@mui/material/Fab';
-import BookIcon from '@mui/icons-material/Book';
+import axios from 'axios';
+import React from 'react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './signup.css';
 
-const Signup = () => {
-    let [data, updatedata] = useState({ name: '', email: '', contact: '', password: '' })
-    let naviagte=useNavigate();
-    function change(e) {
-        updatedata({ ...data, [e.target.name]: e.target.value })
-    }
-    return (
-        <>
-        
-            <div className='img'>
-            
-                <div className='std-div'>
-                    <p className='student-quoute'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati  Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores aspernatur omnis officiis, nulla provident atque vero minus cumque aliquam voluptatibus sequi sapiente temporibus doloribus est natus labore numquam? Modi, aliquid. Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem debitis officiis at! Sint, magni cupiditate. Sit esse illo soluta expedita animi assumenda totam quibusdam adipisci cum aspernatur, recusandae exercitationem consequuntur!</p>
-                </div>
-                <div className='userps'>
 
-                    <div className='' style={{ width: '22rem' }}>
-                        <form className='form-control' onSubmit={(e) => {
-                            e.preventDefault();
-                            async function signup() {
-                                let res = await axios.post('https://studentapi-c8py.onrender.com/registration//', data)
-
-                                if (res.status === 201) {
-                                    alert('sucessfully signed up');
-                                    naviagte('/dashboard');
-                                }
-                            }
-                            signup()
-                        }}>
-                            <h3 class="card-title text-center">Sign in</h3><br></br>
-                            Name<input type="text" name="name" value={data.name} onChange={change} className='form-control' /><br></br>
-                            Email<input type="email" name="email" value={data.email} onChange={change} className='form-control' />
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div><br></br>
-                            Password<input type="text" name="password" value={data.password} onChange={change} className='form-control' /><br></br>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" />
-                                <label class="form-check-label" for="flexCheckIndeterminate">
-                                    i agreed to all T&C
-                                </label>
-                            </div>
-                            
-                            <button className='btn btn-success my-4 text-center d-grid gap-2 col-4 mx-auto'>Sign Up</button>
-                            
-                            {/* <Link to='/dashboard' className=''>go to dsh board</Link> */}
-                            <div class="d-grid  col-9 mx-5">
-                            <div id="emailHelp" class="form-text mx-3">Dont have an Account?<Link to='/'>sign up</Link></div>
-                            </div>
-                        </form>
-                    </div>
+function Signin() {
+  var navigate=useNavigate();
+  let [data,updatedata]=useState({name:'',email:'',password:''});
+  function change(e){
+    updatedata({...data,[e.target.name]:e.target.value})
+  }
+  
+  return (
+    <>
+      <div className="container d-flex justify-content-center align-items-center min-vh-100">
+        <div className="row border rounded-5 p-3 bg-white shadow box-area">
+          <div className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style={{ background: '#103cbe' }}>
+            <div className="featured-image mb-3">
+              <img src="" className="img-fluid" style={{ width: '250px' }} />
+            </div>
+            <p className="text-white fs-2" style={{ fontFamily: 'Courier New', Courier: true, fontWeight: 600 }}>Wellcome back</p>
+            <small className="text-white text-wrap text-center" style={{ width: '17rem', fontFamily: 'Courier New', Courier: true }}>“Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” —Malcolm X</small>
+          </div>
+          <div className="col-md-6 right-box">
+            <div className="row align-items-center">
+              <div className="header-text mb-4">
+                <h2>Login</h2>
+                <p>We are happy to have you back.</p>
+              </div>
+              <form  onSubmit={(e)=>{
+                e.preventDefault();
+                async function signup(){
+                  let res=await axios.post("https://princestudentapi.onrender.com/Registration//",data)
+                  if(res.status===201){
+                   
+                     navigate('/dashboard')
+                  }
+                }
+                signup()
+              }}>
+              <div className="input-group mb-3">
+                <input type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Name" name='name' value={data.name} onChange={change}/>
+              </div>
+              <div className="input-group mb-3">
+                <input type="email" className="form-control form-control-lg bg-light fs-6" placeholder="Email addess" name='email' value={data.email} onChange={change}/>
+              </div>
+             
+              <div className="input-group mb-3">
+                <input type="password" className="form-control form-control-lg bg-light fs-6" placeholder="Password" name="password" value={data.password} onChange={change}/>
+              </div>
+              <div className="input-group mb-5 d-flex justify-content-between">
+                {/* <div className="form-check">
+                  <input type="checkbox" className="form-check-input" id="formCheck" />
+                  <label htmlFor="formCheck" className="form-check-label text-secondary"><small>Remember Me</small></label>
+                </div> */}
+                <div className="forgot">
+                  <small><a href="#">Forgot Password?</a></small>
                 </div>
-                <Link to='/dashboard'>
-                <Box sx={{ '& > :not(style)': { m: 1 } }}>
-     
-     <Fab variant="extended" size="medium" color="primary" aria-label="add">
-     <BookIcon/>
-       view Courses
-     </Fab>
-   </Box>
-   </Link>
-                </div>
-               
-        </>
-    )
+              </div>
+              <div className="input-group mb-3">
+                <button className="btn btn-lg btn-primary w-100 fs-6" type='submit'>Login</button>
+              </div>
+              </form>
+              <div className="input-group mb-3">
+                <button className="btn btn-lg btn-light w-100 fs-6"><img src="" style={{ width: '20px' }} className="me-2" /><small>Sign In with Google</small></button>
+              </div>
+              <div className="row">
+                <small>Dont have an account? <Link to="/">Sign up</Link></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default Signup
+export default Signin;

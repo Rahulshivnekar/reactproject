@@ -27,7 +27,10 @@ const Dashboard = () => {
     var res=await axios.get("https://princestudentapi.onrender.com/Course//");
   
     updatedata(res.data);
+    
+    
   }
+  console.log("hello")
   
 function WithLabelExample() {
   const now = 60;
@@ -35,7 +38,9 @@ function WithLabelExample() {
 }
   
 
-  var total = 0;
+  var total = res;
+  var l=total.length;
+  console.log(l)
   return (
     <>
     

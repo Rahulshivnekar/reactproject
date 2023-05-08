@@ -35,7 +35,7 @@ const Sidebar = () => {
               </a> 
               <a className='list-group-item py2'>
                 <i className='bi bi-box-arrow-left fs-5 me-3'></i>
-                <span className='fs-5' onClick={asklog}>Logout</span>
+                <span className='fs-5'><Asklogout/></span>
               </a> 
 
         </div>

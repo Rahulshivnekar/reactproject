@@ -1,16 +1,13 @@
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './signup.css';
 
+
 function SignUp() {
-  const [data,updatedata]=useState({name:'',email:'',contact:'',password:''});
-  async function add(){
-    var res=await axios.post("https://princestudentapi.onrender.com/Registration//",data)
-    if(res.status===200){
-      alert('signup succesfully')
-    }
-  }
+  var navigate=useNavigate();
+  let [data,updatedata]=useState({name:'',email:'',contact:'',password:''});
   function change(e){
     updatedata({...data,[e.target.name]:e.target.value})
   }
@@ -32,7 +29,17 @@ function SignUp() {
                 <h2>Sign up</h2>
                 <p>We are happy to have you back.</p>
               </div>
-              <form >
+              <form  onSubmit={(e)=>{
+                e.preventDefault();
+                async function signup(){
+                  let res=await axios.post("https://princestudentapi.onrender.com/Registration//",data)
+                  if(res.status===201){
+                   
+                     navigate('/dashboard')
+                  }
+                }
+                signup()
+              }}>
               <div className="input-group mb-3">
                 <input type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Name" name='name' value={data.name} onChange={change}/>
               </div>
@@ -55,14 +62,14 @@ function SignUp() {
                 </div>
               </div>
               <div className="input-group mb-3">
-                <button className="btn btn-lg btn-primary w-100 fs-6" type='submit' onSubmit={add}>Sign up</button>
+                <button className="btn btn-lg btn-primary w-100 fs-6" type='submit'>Sign up</button>
               </div>
               </form>
               <div className="input-group mb-3">
                 <button className="btn btn-lg btn-light w-100 fs-6"><img src="" style={{ width: '20px' }} className="me-2" /><small>Sign In with Google</small></button>
               </div>
               <div className="row">
-                <small>Allready have an account? <a href="#">Sign in</a></small>
+                <small>Allready have an account? <Link to="/signin">Sign in</Link></small>
               </div>
             </div>
           </div>

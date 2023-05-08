@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from './Nav'
 import axios from 'axios';
 import Courseapi from './Courseapi';
 
 
 
+
 const Home = ({Toggle}) => {
-   
+  let [data, updatedata] = useState([]);
+  useEffect(() => {
+    show();
+  });
+  async function show() {
+    var res = await axios.get("https://princestudentapi.onrender.com/Course//")
+    updatedata(res.data)
+    
+  }
+  var a=data;
+  var l=a.length
+  
   return (
     <div className='px-3'>
         <Nav Toggle={Toggle}/>
@@ -18,7 +30,7 @@ const Home = ({Toggle}) => {
       
     }}>
                      <div>
-                        <h3 className='fs-2'>7</h3>
+                        <h3 className='fs-2'>{l}</h3>
                         <p className='fs-5'>Courses</p>
                      </div>
                      <i className='bi bi-journal-bookmark p3 fs-1'></i>

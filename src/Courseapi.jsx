@@ -9,11 +9,14 @@ const Courseapi = () => {
     });
     async function show() {
       var res = await axios.get("https://princestudentapi.onrender.com/Course//")
-      
       updatedata(res.data)
+      
     }
+    
+    
   return (
     <div>
+      
          <table class="table caption-top text-light rounded mt-2"> 
       
       

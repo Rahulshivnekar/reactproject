@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom';
 
 function Asklogout() {
   const [smShow, setSmShow] = useState(false);
@@ -8,10 +9,10 @@ function Asklogout() {
 
   return (
     <>
-      <Button onClick={() => setSmShow(true)} className="me-2">
-        Small modal
+      <Button onClick={() => setSmShow(true)} className="btn btn-light btn-lg">
+        Logout
       </Button>
-      <Button onClick={() => setLgShow(true)}>Large modal</Button>
+      
       <Modal
         size="sm"
         show={smShow}
@@ -20,10 +21,12 @@ function Asklogout() {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-sm">
-            Small Modal
+          Click confirm to logout
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>...</Modal.Body>
+        <Modal.Body>
+          <Link to="/"><button className='btn btn-primary'>confirm</button></Link>
+        </Modal.Body>
       </Modal>
       <Modal
         size="lg"
