@@ -27,7 +27,7 @@ const Stdsidebar = () => {
              
               <a className='list-group-item py2'>
                 <i className='bi bi-fingerprint fs-5 me-3'></i>
-                <span className='fs-5'>Admin Login</span>
+                <span className='fs-5'><Link className='link-dark text-decoration-none' to='/admin'>Admin Login</Link></span>
               </a>
               <a className='list-group-item py2'>
                 <i className='bi bi-box-arrow-left fs-5 me-3'></i>

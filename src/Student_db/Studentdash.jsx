@@ -1,3 +1,4 @@
+import { height } from '@mui/system'
 import React, { useState } from 'react'
 import Stdhome from './Stdhome'
 import Stdsidebar from './Stdsidebar'
@@ -10,7 +11,7 @@ const Studentdash = () => {
         setToggle(!toggle)
     }
   return (
-    <div className='container-fluid  min-vh-100'  style={{backgroundColor:"#282C34"}}>
+    <div className='container-fluid  min-vh-100'  style={{backgroundColor:"#282C34",overflowY:"scroll",height:"10vh"}}>
         <div className='row'>
            {toggle && <div className='col-2 bg-white vh-100 position-fixed'>
            <Stdsidebar/>

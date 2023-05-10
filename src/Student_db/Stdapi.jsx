@@ -14,13 +14,14 @@ const Stdapi = () => {
       updatedata(res.data)
     }
   return (
+    <>
     <div>
         <div className='mt-4'> 
         <Addstudent className='row g-3 mt-2'/>
         </div>
         
-       
-         <table class="table caption-top text-light rounded mt-2 "> 
+          <div className='tab'>
+         <table class="table caption-top text-light rounded mt-2"> 
       
               
               <caption className='fs-4'>All students</caption>
@@ -56,9 +57,11 @@ const Stdapi = () => {
         </tbody>
         
   </table>
+  </div>
  <div className='cards'>
  </div>
     </div>
+    </>
   )
 }
 

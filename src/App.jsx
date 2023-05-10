@@ -4,13 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Link, Route, Routes } from 'react-router-dom';
-import Dashboard from './Dashboard';
 import Pagenotfound from './Pagenotfound';
 import Signin from './Signin';
 import Dashboard2 from './Dashboard2';
 import Teacherdash from './Teacher_db/Teacherdash';
 import Studentdash from './Student_db/Studentdash';
-
+import Ttestapi from './Teacher_db/Ttestapi';
 const App = () => {
   return (
     <>

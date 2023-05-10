@@ -70,7 +70,9 @@ const Stdhome = ({ Toggle }) => {
           </div>
         </div> */}
       </div>
+      <div >
       <Stdapi />
+      </div>
 
     </div>
   )

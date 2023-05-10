@@ -12,6 +12,7 @@ const Teacherapi = () => {
       var res = await axios.get("https://princestudentapi.onrender.com/Teacher//")
       
       updatedata(res.data)
+      
     }
   return (
     <div>
@@ -31,8 +32,7 @@ const Teacherapi = () => {
         <th scope="col">Education</th>
         <th scope="col">Experience</th>
         <th scope="col">Contact</th>
-
-  
+        <th scope="col">Current status</th>
       </tr>
     </thead>
     <tbody>
@@ -44,6 +44,7 @@ const Teacherapi = () => {
               <td>{v.education}</td>
               <td>{v.workexp}</td>
               <td>{v.teachermobile}</td>
+              <td>{v.is_active===true?"yes":"no"}</td>
               
             </tr>)
           })}

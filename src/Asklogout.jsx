@@ -17,10 +17,10 @@ function Asklogout() {
         size="sm"
         show={smShow}
         onHide={() => setSmShow(false)}
-        aria-labelledby="example-modal-sizes-title-sm"
+        aria-labelledby="contained-modal-title-vcenter"
       >
         <Modal.Header closeButton>
-          <Modal.Title id="example-modal-sizes-title-sm">
+          <Modal.Title id=" contained-modal-title-vcenter">
           Click confirm to logout
           </Modal.Title>
         </Modal.Header>
@@ -28,19 +28,7 @@ function Asklogout() {
           <Link to="/signin"><button className='btn btn-primary'>confirm</button></Link>
         </Modal.Body>
       </Modal>
-      <Modal
-        size="lg"
-        show={lgShow}
-        onHide={() => setLgShow(false)}
-        aria-labelledby="example-modal-sizes-title-lg"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="example-modal-sizes-title-lg">
-            Large Modal
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>...</Modal.Body>
-      </Modal>
+      
     </>
   );
 }

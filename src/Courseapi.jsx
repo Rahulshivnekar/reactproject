@@ -49,7 +49,7 @@ const Courseapi = () => {
   <div class="card  p-3" style={{width: "37rem",marginTop:'25px'}}>
   <div class="card-body">
     <h5 class="card-title">Success rate</h5>
-    <h6 class="card-subtitle mb-2 text-muted">hjkvkhvkhv</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Highest success ratio</h6>
     <div class="progress">
   <div class="progress-bar bg-success" role="progressbar" style={{width: "90%"}} aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
 </div>
@@ -59,7 +59,7 @@ const Courseapi = () => {
 <div class="card" style={{width: "37rem",marginTop:'25px'}}>
   <div class="card-body">
     <h5 class="card-title">Upcoming Events</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">"Ignite Your Potential: Join our student conference and unlock your path to success."</p>
     <a href="#" class="card-link">Learn more</a>
   </div>
 </div>

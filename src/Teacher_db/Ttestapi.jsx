@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Modal, ModalBody, Row, Col } from 'reactstrap';
 import { ModalHeader } from 'reactstrap';
 
-const Addteacher = () => {
+const Ttestapi = () => {
     const [modal, updatemodal] = useState(false)
     const [filename, setFilename] = useState()
     const [tname, setTname] = useState()
@@ -149,12 +149,11 @@ const Addteacher = () => {
                     <div>
                       <label htmlFor="mobile_no.">Mobile No.</label>
                       <input
-                        type="tel"
+                        type="number"
                         name="teachermobile"
                         onChange={e => setTmob(e.target.value)}
                         className="form-control"
                         placeholder="Enter Mobile Number"
-                        maxLength={10}
                       />
                     </div>
                   </Col>
@@ -262,7 +261,7 @@ const Addteacher = () => {
           </Modal>
         </div>
         <button className="btn btn-secondary" onClick={() => updatemodal(true)} >
-        Add Teacher 
+          <h4 >Add Teacher </h4>
         </button>
       </div>
       <div className="allstuparentdivb">
@@ -274,4 +273,4 @@ const Addteacher = () => {
   )
 }
 
-export default Addteacher;
+export default Ttestapi
